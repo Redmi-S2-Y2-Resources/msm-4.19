@@ -18,6 +18,7 @@
 #include "pmi8940.dtsi"
 #include "msm8953-mtp.dtsi"
 #include "msm8953-pmi8940.dtsi"
+#include <dt-bindings/leds/common.h>
 
 / {
 	model = "Qualcomm Technologies, Inc. MSM8953 + PMI8940 MTP";
@@ -55,21 +56,18 @@
 
 &i2c_2 {//E6
 	status = "ok";
-	aw2013@45 {
+	led-controller@45 {
 		compatible = "awinic,aw2013";
 		reg = <0x45>;
-		vdd-supply = <&pm8953_l10>;
-		vcc-supply = <&pm8953_l5>;
+		vcc-supply = <&pm8953_l10>;
+		#address-cells = <1>;
+		#size-cells = <0>;
 
-		aw2013,red {
-			aw2013,name = "white";
-			aw2013,id = <0>;
-			aw2013,max-brightness = <255>;
-			aw2013,max-current = <1>;
-			aw2013,rise-time-ms = <4>;
-			aw2013,hold-time-ms = <1>;
-			aw2013,fall-time-ms = <4>;
-			aw2013,off-time-ms = <1>;
+		white@0 {
+			reg = <0>;
+			led-max-microamp = <5000>;
+			function = LED_FUNCTION_INDICATOR;
+			color = <LED_COLOR_ID_WHITE>;
 		};
 	};
 
