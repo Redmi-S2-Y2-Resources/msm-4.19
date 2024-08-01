@@ -617,6 +617,11 @@
 				qcom,wf-pattern = [7e 7e 7e];
 				qcom,wf-play-rate-us = <6667>;
 			};
+			qcom,lra-auto-res-mode="qwd";
+			qcom,lra-high-z="opt1";
+			qcom,lra-res-cal-period = <4>;
+			qcom,correct-lra-drive-freq;
+			qcom,misc-trim-error-rc19p2-clk-reg-present;
 		};
 	};
 };
